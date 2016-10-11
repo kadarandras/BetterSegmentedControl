@@ -64,7 +64,7 @@ import UIKit
     
     // MARK: - Public properties
     /// The selected index
-    public fileprivate(set) var index: UInt
+    public fileprivate(set) var index: UInt!
     /// The titles / options available for selection
     public var titles: [String] {
         get {
@@ -193,7 +193,7 @@ import UIKit
     
     // MARK: - Lifecycle
     required public init?(coder aDecoder: NSCoder) {
-        self.index = 0
+        self.index = nil
         self.titleColor = DefaultColors.titleColor
         self.selectedTitleColor = DefaultColors.selectedTitleColor
         super.init(coder: aDecoder)
@@ -202,7 +202,7 @@ import UIKit
     }
     public init(frame: CGRect,
                 titles: [String],
-                index: UInt,
+                index: UInt?,
                 backgroundColor: UIColor,
                 titleColor: UIColor,
                 indicatorViewBackgroundColor: UIColor,
@@ -290,13 +290,17 @@ import UIKit
      
      - throws: An error of type IndexBeyondBounds(UInt) is thrown if an index beyond the available indices is passed.
      */
-    public func set(index: UInt, animated: Bool = true) throws {
-        guard titleLabels.indices.contains(Int(index)) else {
-            throw IndexError.indexBeyondBounds(index)
+    public func set(index: UInt?, animated: Bool = true) throws {
+        let previousIndex = self.index
+        guard let index = index, titleLabels.indices.contains(Int(index)) else {
+            self.index = nil
+            self.indicatorView.alpha = 0
+            return
         }
         let oldIndex = self.index
         self.index = index
-        moveIndicatorViewToIndex(animated, shouldSendEvent: (self.index != oldIndex || alwaysAnnouncesValue))
+        self.indicatorView.alpha = 1
+        moveIndicatorViewToIndex(animated && previousIndex != nil, shouldSendEvent: (self.index != oldIndex || alwaysAnnouncesValue))
     }
     
     // MARK: - Animations
@@ -323,7 +327,8 @@ import UIKit
     }
     
     // MARK: - Helpers
-    fileprivate func elementFrame(forIndex index: UInt) -> CGRect {
+    fileprivate func elementFrame(forIndex index: UInt?) -> CGRect {
+        guard let index = index else { return CGRect.zero }
         let elementWidth = (width - totalInsetSize) / CGFloat(titleLabelsCount)
         return CGRect(x: CGFloat(index) * elementWidth + indicatorViewInset,
                       y: indicatorViewInset,
