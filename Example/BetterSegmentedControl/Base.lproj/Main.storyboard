@@ -94,6 +94,30 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eXa-AM-8vD" userLabel="Control 3" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                <rect key="frame" x="16" y="311" width="343" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="XZ2-mf-MAe"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewInset">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -101,8 +125,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="s9Z-Wc-R9b" secondAttribute="trailing" id="6Zf-us-emr"/>
                             <constraint firstItem="aBR-d5-mUa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="AbW-vs-CEm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aBR-d5-mUa" secondAttribute="trailing" id="RWi-4E-qag"/>
+                            <constraint firstItem="eXa-AM-8vD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="UHy-HT-Fmi"/>
+                            <constraint firstItem="eXa-AM-8vD" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="WwI-kA-lzw"/>
                             <constraint firstItem="LRg-26-sIB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Xdl-UN-hvc"/>
                             <constraint firstItem="aBR-d5-mUa" firstAttribute="top" secondItem="LRg-26-sIB" secondAttribute="bottom" constant="30" id="b9w-W2-Wq4"/>
+                            <constraint firstItem="eXa-AM-8vD" firstAttribute="top" secondItem="s9Z-Wc-R9b" secondAttribute="bottom" constant="30" id="eFk-Ib-qT7"/>
                             <constraint firstItem="s9Z-Wc-R9b" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="wS1-9a-S8H"/>
                             <constraint firstItem="LRg-26-sIB" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="ydl-Fy-6sB"/>
                             <constraint firstItem="s9Z-Wc-R9b" firstAttribute="top" secondItem="aBR-d5-mUa" secondAttribute="bottom" constant="30" id="zKZ-qu-6qz"/>
@@ -112,6 +139,7 @@
                     <connections>
                         <outlet property="control1" destination="LRg-26-sIB" id="bxZ-YG-SKf"/>
                         <outlet property="control3" destination="s9Z-Wc-R9b" id="qPZ-T2-aZb"/>
+                        <outlet property="controlAttributed" destination="eXa-AM-8vD" id="e26-Cj-gqs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
