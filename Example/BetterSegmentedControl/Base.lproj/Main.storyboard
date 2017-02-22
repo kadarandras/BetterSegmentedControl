@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oBL-AA-ynO">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oBL-AA-ynO">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,8 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRg-26-sIB" userLabel="Control 1" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                <frame key="frameInset" minX="20" minY="94" width="560" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRg-26-sIB" userLabel="Control 1" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                <rect key="frame" x="16" y="94" width="343" height="44"/>
                                 <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="knM-JV-HxM"/>
@@ -46,8 +49,8 @@
                                     <action selector="segmentedControl1ValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="fsf-jX-Rzm"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aBR-d5-mUa" userLabel="Control 2" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                <frame key="frameInset" minX="20" minY="168" width="560" height="40"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBR-d5-mUa" userLabel="Control 2" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                <rect key="frame" x="16" y="168" width="343" height="40"/>
                                 <color key="backgroundColor" red="0.93333333333333335" green="0.32941176470588235" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="aCw-e2-GOD"/>
@@ -67,8 +70,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9Z-Wc-R9b" userLabel="Control 3" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
-                                <frame key="frameInset" minX="20" minY="238" width="560" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s9Z-Wc-R9b" userLabel="Control 3" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                <rect key="frame" x="16" y="238" width="343" height="44"/>
                                 <color key="backgroundColor" red="0.17254901960784313" green="0.68627450980392157" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="0B8-wP-Iis"/>
@@ -91,6 +94,30 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eXa-AM-8vD" userLabel="Control 3" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                <rect key="frame" x="16" y="311" width="343" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="XZ2-mf-MAe"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorViewInset">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -98,8 +125,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="s9Z-Wc-R9b" secondAttribute="trailing" id="6Zf-us-emr"/>
                             <constraint firstItem="aBR-d5-mUa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="AbW-vs-CEm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aBR-d5-mUa" secondAttribute="trailing" id="RWi-4E-qag"/>
+                            <constraint firstItem="eXa-AM-8vD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="UHy-HT-Fmi"/>
+                            <constraint firstItem="eXa-AM-8vD" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="WwI-kA-lzw"/>
                             <constraint firstItem="LRg-26-sIB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Xdl-UN-hvc"/>
                             <constraint firstItem="aBR-d5-mUa" firstAttribute="top" secondItem="LRg-26-sIB" secondAttribute="bottom" constant="30" id="b9w-W2-Wq4"/>
+                            <constraint firstItem="eXa-AM-8vD" firstAttribute="top" secondItem="s9Z-Wc-R9b" secondAttribute="bottom" constant="30" id="eFk-Ib-qT7"/>
                             <constraint firstItem="s9Z-Wc-R9b" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="wS1-9a-S8H"/>
                             <constraint firstItem="LRg-26-sIB" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="ydl-Fy-6sB"/>
                             <constraint firstItem="s9Z-Wc-R9b" firstAttribute="top" secondItem="aBR-d5-mUa" secondAttribute="bottom" constant="30" id="zKZ-qu-6qz"/>
@@ -109,6 +139,7 @@
                     <connections>
                         <outlet property="control1" destination="LRg-26-sIB" id="bxZ-YG-SKf"/>
                         <outlet property="control3" destination="s9Z-Wc-R9b" id="qPZ-T2-aZb"/>
+                        <outlet property="controlAttributed" destination="eXa-AM-8vD" id="e26-Cj-gqs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

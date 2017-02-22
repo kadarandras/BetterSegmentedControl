@@ -72,40 +72,25 @@ import UIKit
             return titleLabels.map { $0.text! }
         }
         set {
-            guard newValue.count > 1 else {
-                return
-            }
-            let labels: [(UILabel, UILabel)] = newValue.map {
-                (string) -> (UILabel, UILabel) in
-                
-                let titleLabel = UILabel()
-                titleLabel.textColor = titleColor
-                titleLabel.text = string
-                titleLabel.lineBreakMode = .byTruncatingTail
-                titleLabel.textAlignment = .center
-                titleLabel.font = titleFont
-                
-                let selectedTitleLabel = UILabel()
-                selectedTitleLabel.textColor = selectedTitleColor
-                selectedTitleLabel.text = string
-                selectedTitleLabel.lineBreakMode = .byTruncatingTail
-                selectedTitleLabel.textAlignment = .center
-                selectedTitleLabel.font = selectedTitleFont
-                
-                return (titleLabel, selectedTitleLabel)
-            }
-            
-            titleLabelsView.subviews.forEach({ $0.removeFromSuperview() })
-            selectedTitleLabelsView.subviews.forEach({ $0.removeFromSuperview() })
-            
-            for (inactiveLabel, activeLabel) in labels {
-                titleLabelsView.addSubview(inactiveLabel)
-                selectedTitleLabelsView.addSubview(activeLabel)
-            }
-            
-            setNeedsLayout()
+            guard newValue.count > 1 else { return }
+            let labels: [(UILabel, UILabel)] = newValue.map(createLabelsWithText)
+            replaceLabels(with: labels)
         }
     }
+    
+    /// The attributedTitles / options available for selection
+    public var attributedTitles: [NSAttributedString] {
+        get {
+            let titleLabels = titleLabelsView.subviews as! [UILabel]
+            return titleLabels.flatMap { $0.attributedText }
+        }
+        set {
+            guard newValue.count > 1 else { return }
+            let labels: [(UILabel, UILabel)] = newValue.map(createLabelsWithAttributedText)
+            replaceLabels(with: labels)
+        }
+    }
+    
     /// Whether the indicator should bounce when selecting a new index. Defaults to true.
     public var bouncesOnChange = true
     /// Whether the the control should always send the .ValueChanged event, regardless of the index remaining unchanged after interaction. Defaults to false.
@@ -301,6 +286,52 @@ import UIKit
         self.index = index
         self.indicatorView.alpha = 1
         moveIndicatorViewToIndex(animated && previousIndex != nil, shouldSendEvent: (self.index != oldIndex || alwaysAnnouncesValue))
+    }
+    
+    // MARK: - Setup labels
+    
+    private func createLabelsWithText(_ text: String) -> (UILabel, UILabel) {
+        let labels = createLabels()
+        labels.0.text = text
+        labels.1.text = text
+        return labels
+    }
+    
+    private func createLabelsWithAttributedText(_ attributedText: NSAttributedString) -> (UILabel, UILabel) {
+        let labels = createLabels()
+        labels.0.attributedText = attributedText
+        labels.1.attributedText = attributedText
+        return labels
+    }
+    
+    private func createLabels() -> (UILabel, UILabel) {
+        
+        let titleLabel = UILabel()
+        titleLabel.textColor = titleColor
+        titleLabel.lineBreakMode = .byTruncatingTail
+        titleLabel.textAlignment = .center
+        titleLabel.font = titleFont
+        
+        let selectedTitleLabel = UILabel()
+        selectedTitleLabel.textColor = selectedTitleColor
+        selectedTitleLabel.lineBreakMode = .byTruncatingTail
+        selectedTitleLabel.textAlignment = .center
+        selectedTitleLabel.font = selectedTitleFont
+        
+        return (titleLabel, selectedTitleLabel)
+    }
+    
+    private func replaceLabels(with labels: [(UILabel, UILabel)]) {
+        
+        titleLabelsView.subviews.forEach({ $0.removeFromSuperview() })
+        selectedTitleLabelsView.subviews.forEach({ $0.removeFromSuperview() })
+        
+        for (inactiveLabel, activeLabel) in labels {
+            titleLabelsView.addSubview(inactiveLabel)
+            selectedTitleLabelsView.addSubview(activeLabel)
+        }
+        
+        setNeedsLayout()
     }
     
     // MARK: - Animations
